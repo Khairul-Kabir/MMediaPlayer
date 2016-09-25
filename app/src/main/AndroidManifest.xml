@@ -21,7 +21,8 @@
         <activity android:name=".SongList" />
         <activity android:name=".VideoPlayer" />
         <activity android:name=".VideoList" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".About" />
+        <activity android:name=".Help"></activity>
     </application>
 
 </manifest>

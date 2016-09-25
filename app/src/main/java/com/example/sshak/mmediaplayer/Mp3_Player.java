@@ -23,7 +23,7 @@ public class Mp3_Player extends AppCompatActivity implements View.OnClickListene
     String songName;
     SeekBar seekBar;
     Thread seekBarUpdate;
-    TextView txt;
+    TextView currentSongName;
     ImageButton btnPlay,btnFF,btnNext,btnFB,btnPrev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class Mp3_Player extends AppCompatActivity implements View.OnClickListene
         songName = songList.get(position).getName().toString();
         mediaPlayer = MediaPlayer.create(getApplicationContext(),uri);
         mediaPlayer.start();
-        txt.setText(songName);
+        currentSongName.setText(songName);
         seekBar.setMax(mediaPlayer.getDuration());
         seekBarUpdate.start();
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -89,7 +89,7 @@ public class Mp3_Player extends AppCompatActivity implements View.OnClickListene
         btnFB = (ImageButton)findViewById(R.id.btnFB);
         btnPrev = (ImageButton)findViewById(R.id.btnPrev);
         seekBar = (SeekBar)findViewById(R.id.seekBarStatus);
-        txt = (TextView)findViewById(R.id.txtNowPlaying);
+        currentSongName = (TextView)findViewById(R.id.txtNowPlaying);
 
         btnPlay.setOnClickListener(this);
         btnFF.setOnClickListener(this);
@@ -125,7 +125,7 @@ public class Mp3_Player extends AppCompatActivity implements View.OnClickListene
                 songName = songList.get(position).getName().toString();
                 mediaPlayer = MediaPlayer.create(getApplicationContext(),uri);
                 mediaPlayer.start();
-                txt.setText(songName);
+                currentSongName.setText(songName);
                 seekBar.setMax(mediaPlayer.getDuration());
                 break;
             case R.id.btnPrev:
@@ -140,7 +140,7 @@ public class Mp3_Player extends AppCompatActivity implements View.OnClickListene
                 songName = songList.get(position).getName().toString();
                 mediaPlayer = MediaPlayer.create(getApplicationContext(),uri);
                 mediaPlayer.start();
-                txt.setText(songName);
+                currentSongName.setText(songName);
                 seekBar.setMax(mediaPlayer.getDuration());
                 break;
         }
